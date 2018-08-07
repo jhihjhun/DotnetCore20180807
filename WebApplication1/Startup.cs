@@ -37,7 +37,10 @@ namespace WebApplication1
 
             //var settings = new AppSettings();
             //services.AddSingleton(settings);
-            services.Configure<AppSettings>(Configuration);
+
+            //services.Configure<AppSettings>(Configuration);
+
+            services.Configure<AppSettings>(Configuration.GetSection("App:Module1"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
