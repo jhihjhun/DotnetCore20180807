@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -12,9 +13,9 @@ namespace WebApplication1.Controllers
     {
         AppSettings _settings;
 
-        public HomeController(AppSettings s)
+        public HomeController(IOptions<AppSettings> s)
         {
-            this._settings = s;
+            this._settings = s.Value;
         }
 
         public IActionResult Index()

@@ -35,8 +35,9 @@ namespace WebApplication1
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            var settings = new AppSettings();
-            services.AddSingleton(settings);
+            //var settings = new AppSettings();
+            //services.AddSingleton(settings);
+            services.Configure<AppSettings>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
