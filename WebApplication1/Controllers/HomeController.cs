@@ -10,6 +10,13 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        AppSettings _settings;
+
+        public HomeController(AppSettings s)
+        {
+            this._settings = s;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -24,7 +31,8 @@ namespace WebApplication1.Controllers
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            //ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = this._settings.SiteName;
 
             return View();
         }
